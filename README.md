@@ -13,31 +13,38 @@ A mobile document scanner that detects, deskews, and classifies document images 
 |---------|------|----------------|
 | `backend/` | Koyeb | CV pipeline (OpenCV) — `POST /scan` |
 | `classifier/` | Hugging Face Spaces | ML classifier (PyTorch) — `POST /classify` |
-| `frontend/` | Cloudflare Pages | Vite + React mobile web app |
+| `frontend/` | Cloudflare Pages | Next.js 14 mobile web app |
 
-Data persistence uses **Supabase** (storage + auth).
+Data persistence uses **Supabase** (storage + auth — coming soon).
 
 ## Project structure
 
 ```
 smartscan/
 ├── backend/                  # FastAPI + OpenCV scan service (Koyeb)
-│   ├── src/                  # Core CV modules (unchanged from original)
-│   │   ├── scan_pipeline.py
-│   │   ├── document_detection.py
-│   │   ├── perspective.py
-│   │   ├── preprocessing.py
-│   │   ├── segmentation.py
-│   │   └── utils.py
-│   ├── main.py               # FastAPI entry point — POST /scan
+│   ├── src/                  # Core CV modules (unchanged)
+│   ├── main.py               # FastAPI entry — POST /scan
 │   ├── requirements.txt
 │   └── Dockerfile
 ├── classifier/               # FastAPI + PyTorch classifier (Hugging Face Spaces)
 │   ├── classification_core.py
-│   ├── document_classifier_v2.pt   # not tracked in git — place here manually
-│   ├── app.py                # FastAPI entry point — POST /classify
+│   ├── csci435_version1.ipynb  # training notebook
+│   ├── document_classifier_v2.pt  # not in git — place here manually
+│   ├── app.py               # FastAPI entry — POST /classify
 │   └── requirements.txt
-├── frontend/                 # Vite + React app (Cloudflare Pages)
+├── frontend/                 # Next.js 14 App Router (Cloudflare Pages)
+│   ├── app/
+│   │   ├── layout.tsx
+│   │   ├── page.tsx          # Home screen
+│   │   ├── camera/page.tsx   # Camera screen (getUserMedia)
+│   │   ├── processing/page.tsx  # POST /scan → POST /classify
+│   │   └── results/page.tsx  # Results + stats
+│   ├── components/
+│   │   └── BottomNav.tsx
+│   ├── lib/utils.ts
+│   ├── next.config.js
+│   ├── wrangler.toml         # Cloudflare Pages config
+│   └── .env.local            # API URLs (gitignored)
 ├── .gitignore
 └── README.md
 ```
@@ -52,18 +59,7 @@ pip install -r requirements.txt
 uvicorn main:app --reload --port 8000
 ```
 
-`POST http://localhost:8000/scan` — multipart form field `file` = image file.
-
-Returns JSON:
-```json
-{
-  "document_found": true,
-  "scan": "<base64-encoded PNG>",
-  "regions": [{"x": 0, "y": 0, "w": 100, "h": 50}],
-  "timings_ms": {"enhance": 12.3, "detect": 8.1, "warp": 2.0, "binarize": 1.5, "segment": 3.2},
-  "total_ms": 27.1
-}
-```
+`POST http://localhost:8000/scan` — multipart `file` field. Returns JSON with base64 fields: `original`, `enhanced`, `detected_overlay`, `warped`, `scan`, `region_overlay`, plus `document_found`, `regions`, `total_ms`.
 
 ### Classifier
 
@@ -74,22 +70,37 @@ pip install -r requirements.txt
 uvicorn app:app --reload --port 8001
 ```
 
-`POST http://localhost:8001/classify` — multipart form field `file` = image file.
+`POST http://localhost:8001/classify` — multipart `file` field. Returns `{"label": "invoice", "confidence": 0.97}`.
 
-Returns JSON:
-```json
-{"label": "invoice", "confidence": 0.97}
+### Frontend
+
+```bash
+cd frontend
+npm install
+# Edit .env.local with your API URLs (or leave defaults for deployed services)
+npm run dev        # dev server on http://localhost:3000
 ```
+
+For Cloudflare Pages deployment:
+```bash
+npm run pages:build   # runs @cloudflare/next-on-pages
+wrangler pages deploy .vercel/output/static
+```
+
+Cloudflare Pages build settings (in dashboard):
+- **Build command:** `npm run pages:build`
+- **Output directory:** `.vercel/output/static`
+- **Root directory:** `frontend`
 
 ## Model weights
 
-`document_classifier_v2.pt` is excluded from git (see `.gitignore`). Place it in `classifier/` before running the classifier service.
+`document_classifier_v2.pt` is gitignored. Place it in `classifier/` for local use. Upload it directly to Hugging Face Spaces for deployment.
 
 ## Environment variables
 
-| Variable | Used by | Purpose |
-|----------|---------|---------|
-| `SUPABASE_URL` | backend, frontend | Supabase project URL |
-| `SUPABASE_KEY` | backend, frontend | Supabase anon or service key |
-
-Copy `.env.example` to `.env` in each service directory and fill in the values.
+| Variable | Where | Purpose |
+|----------|-------|---------|
+| `NEXT_PUBLIC_SCAN_API` | `frontend/.env.local` | Koyeb backend URL |
+| `NEXT_PUBLIC_CLASSIFY_API` | `frontend/.env.local` | Hugging Face Space URL |
+| `SUPABASE_URL` | frontend + backend | Supabase project URL (coming soon) |
+| `SUPABASE_KEY` | frontend + backend | Supabase anon/service key (coming soon) |

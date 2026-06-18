@@ -40,7 +40,12 @@ async def scan(file: UploadFile = File(...)):
 
     return {
         "document_found": result.document_found,
+        "original": _encode_png(result.original),
+        "enhanced": _encode_png(result.enhanced),
+        "detected_overlay": _encode_png(result.detected_overlay),
+        "warped": _encode_png(result.warped),
         "scan": _encode_png(result.scan),
+        "region_overlay": _encode_png(result.region_overlay),
         "regions": [{"x": x, "y": y, "w": w, "h": h} for x, y, w, h in result.regions],
         "timings_ms": result.timings_ms,
         "total_ms": result.total_ms,
