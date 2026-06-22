@@ -126,7 +126,7 @@ export default function CameraPage() {
             className="px-3 py-1 rounded-full text-xs font-medium"
             style={{ backgroundColor: 'rgba(0,0,0,0.45)', color: 'rgba(255,255,255,0.85)' }}
           >
-            Auto-detect on
+            Tap to capture
           </div>
           <div className="w-10" />
         </div>
@@ -134,7 +134,7 @@ export default function CameraPage() {
         {/* Document frame */}
         <div className="flex-1 flex flex-col items-center justify-center">
           <p className="text-xs font-medium mb-4 tracking-wide" style={{ color: 'rgba(255,255,255,0.85)' }}>
-            Position document within frame
+            Align document within frame
           </p>
 
           {/* Corner bracket frame */}
@@ -161,7 +161,7 @@ export default function CameraPage() {
           </div>
 
           <p className="text-xs mt-4 text-center" style={{ color: 'rgba(255,255,255,0.6)', maxWidth: '200px' }}>
-            Hold steady — edges will snap automatically.
+            Hold steady, then tap the button to capture.
           </p>
         </div>
 
