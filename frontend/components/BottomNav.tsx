@@ -15,10 +15,14 @@ export function BottomNav() {
   const pathname = usePathname()
 
   return (
-    <nav
-      className="flex items-center justify-around px-4 pt-3 flex-shrink-0 border-t"
-      style={{ paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 12px)', borderColor: 'rgba(0,0,0,0.07)', backgroundColor: 'white' }}
-    >
+    <>
+      {/* Spacer that reserves the same height as the fixed nav so content isn't clipped */}
+      <div aria-hidden style={{ height: 'calc(env(safe-area-inset-bottom, 0px) + 68px)', flexShrink: 0 }} />
+
+      <nav
+        className="fixed bottom-0 left-0 right-0 z-40 flex items-center justify-around px-4 pt-3 border-t"
+        style={{ paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 12px)', borderColor: 'rgba(0,0,0,0.07)', backgroundColor: 'white' }}
+      >
       {NAV_ITEMS.map(({ path, Icon, label }) => {
         const active = pathname === path
         return (
@@ -32,6 +36,7 @@ export function BottomNav() {
           </button>
         )
       })}
-    </nav>
+      </nav>
+    </>
   )
 }
