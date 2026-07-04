@@ -9,9 +9,9 @@ from fastapi.responses import JSONResponse
 
 from src.scan_pipeline import scan_document
 
-log = logging.getLogger("smartscan.backend")
+log = logging.getLogger("scanmint.backend")
 
-app = FastAPI(title="SmartScan CV Pipeline")
+app = FastAPI(title="ScanMint CV Pipeline")
 
 app.add_middleware(
     CORSMiddleware,

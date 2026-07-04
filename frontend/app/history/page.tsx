@@ -68,7 +68,7 @@ function formatQuality(q?: string) {
 function saveToDevice(thumbnail: string, label: string, timestamp: number) {
   const a = document.createElement('a')
   a.href = thumbnail
-  a.download = `smartscan_${label}_${timestamp}.jpg`
+  a.download = `scanmint_${label}_${timestamp}.jpg`
   document.body.appendChild(a)
   a.click()
   document.body.removeChild(a)

@@ -2,7 +2,7 @@
 
 ## About This Project
 
-SmartScan is an academic project built for CSCI435 (Computer Vision Algorithms
+ScanMint is an academic project built for CSCI435 (Computer Vision Algorithms
 and Systems) at the University of Wollongong in Dubai. It is a demonstration
 application and is not intended for production use with sensitive or
 confidential data.

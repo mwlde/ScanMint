@@ -38,13 +38,13 @@ export default function HomePage() {
       {/* Hero */}
       <div className="flex-1 flex flex-col items-center justify-center px-8 gap-3">
         <img
-          src={dogeMode ? '/smartscanlogo2.png' : '/logo3.png'}
-          alt="SmartScan logo"
+          src={dogeMode ? '/scanmintlogo2.png' : '/logo3.png'}
+          alt="ScanMint logo"
           className="transition-all duration-300"
           style={{ width: 160, height: 160, objectFit: 'contain' }}
         />
         <h1 className="text-3xl font-bold tracking-tight" style={{ color: '#1A1A1A' }}>
-          {dogeMode ? 'SmartWoof' : 'SmartScan'}
+          {dogeMode ? 'SmartWoof' : 'ScanMint'}
         </h1>
         <p className="text-center text-sm leading-relaxed mt-1" style={{ color: '#888888', maxWidth: '260px' }}>
           {dogeMode

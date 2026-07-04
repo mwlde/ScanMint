@@ -8,9 +8,9 @@ from PIL import Image
 
 from classification_core import classify_document
 
-log = logging.getLogger("smartscan.classifier")
+log = logging.getLogger("scanmint.classifier")
 
-app = FastAPI(title="SmartScan Document Classifier")
+app = FastAPI(title="ScanMint Document Classifier")
 
 app.add_middleware(
     CORSMiddleware,

@@ -302,7 +302,7 @@ export default function ResultsPage() {
                       const label = classify?.label ?? 'scan'
                       const a = document.createElement('a')
                       a.href = `data:image/png;base64,${scan.scan}`
-                      a.download = `smartscan_${label}_${Date.now()}.png`
+                      a.download = `scanmint_${label}_${Date.now()}.png`
                       document.body.appendChild(a)
                       a.click()
                       document.body.removeChild(a)

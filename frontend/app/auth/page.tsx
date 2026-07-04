@@ -237,7 +237,7 @@ export default function AuthPage() {
         </button>
 
         <p className="text-center text-xs" style={{ color: '#BBBBBB' }}>
-          Your account is optional — SmartScan works fully without one.
+          Your account is optional — ScanMint works fully without one.
         </p>
       </div>
     </div>

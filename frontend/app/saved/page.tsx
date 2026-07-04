@@ -504,7 +504,7 @@ function FolderDetailView({
                   onClick={() => {
                     const a = document.createElement('a')
                     a.href = item.thumbnail
-                    a.download = `smartscan_${item.label}_${item.timestamp}.jpg`
+                    a.download = `scanmint_${item.label}_${item.timestamp}.jpg`
                     document.body.appendChild(a)
                     a.click()
                     document.body.removeChild(a)

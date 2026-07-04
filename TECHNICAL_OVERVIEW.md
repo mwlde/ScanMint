@@ -1,4 +1,4 @@
-# SmartScan — Technical Overview
+# ScanMint — Technical Overview
 
 **Version:** v0.16  
 **Course:** CSCI435 — Computer Vision Algorithms and Systems  
@@ -413,7 +413,7 @@ Browser (Next.js 15, App Router)
 
 ```
 NEXT_PUBLIC_SCAN_API       = http://localhost:8000          # or Koyeb URL
-NEXT_PUBLIC_CLASSIFY_API   = https://mwlde-smartscan-classifier.hf.space
+NEXT_PUBLIC_CLASSIFY_API   = https://mwlde-scanmint-classifier.hf.space
 NEXT_PUBLIC_SUPABASE_URL   = https://<project>.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY = <publishable key>
 ```

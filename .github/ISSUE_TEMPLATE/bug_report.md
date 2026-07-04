@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Report a bug or unexpected behavior in SmartScan
+about: Report a bug or unexpected behavior in ScanMint
 title: "[BUG] "
 labels: bug
 assignees: ''
@@ -26,4 +26,4 @@ If applicable, add screenshots or error logs.
 ## Environment
 - OS:
 - Browser (if frontend):
-- SmartScan version / commit:
+- ScanMint version / commit:

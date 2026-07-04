@@ -1,4 +1,4 @@
-# SmartScan
+# ScanMint
 
 A mobile document scanner that detects, corrects perspective, and classifies document images using computer vision and deep learning. Built for CSCI435 at the University of Wollongong in Dubai.
 
@@ -22,7 +22,7 @@ this project gave me a headache and major burn out. im also convinced that no on
 (semi accurate, its a little messier in practice since i decided we need a redesign. major redesign. of everything. )
 
 ```
-smartscan/
+scanmint/
 ├── backend/                    # FastAPI + OpenCV scan pipeline
 │   ├── src/
 │   │   ├── document_detection.py

@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'SmartScan',
+  title: 'ScanMint',
   description: 'AI-powered document scanner — detect, align, and classify instantly.',
 }
 

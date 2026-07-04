@@ -82,7 +82,7 @@ const PAGES: Record<Section, { title: string; content: React.ReactNode }> = {
     content: (
       <div className="flex flex-col gap-5 text-sm" style={{ color: '#1A1A1A' }}>
         <div>
-          <p className="font-bold text-base">SmartScan Privacy Policy</p>
+          <p className="font-bold text-base">ScanMint Privacy Policy</p>
           <p className="text-xs mt-0.5" style={{ color: '#888' }}>Demo Version, Last updated: June 2026</p>
         </div>
 
@@ -139,7 +139,7 @@ const PAGES: Record<Section, { title: string; content: React.ReactNode }> = {
     content: (
       <div className="flex flex-col gap-5 text-sm" style={{ color: '#1A1A1A' }}>
         <div>
-          <p className="font-bold text-base">SmartScan Terms of Service</p>
+          <p className="font-bold text-base">ScanMint Terms of Service</p>
           <p className="text-xs mt-0.5" style={{ color: '#888' }}>Demo Version, Last updated: June 2026</p>
         </div>
 
@@ -212,7 +212,7 @@ const PAGES: Record<Section, { title: string; content: React.ReactNode }> = {
     content: (
       <div className="flex flex-col gap-1 text-sm" style={{ color: '#1A1A1A' }}>
         <div className="mb-4">
-          <p className="font-bold text-base">SmartScan</p>
+          <p className="font-bold text-base">ScanMint</p>
           <p className="text-xs mt-0.5" style={{ color: '#888' }}>CSCI435, University of Wollongong in Dubai</p>
         </div>
 
@@ -271,7 +271,7 @@ const PAGES: Record<Section, { title: string; content: React.ReactNode }> = {
           {
             version: 'v0.5',
             title: 'Full-Stack App',
-            body: 'Built SmartScan as a deployed web app: Next.js frontend, FastAPI backend for the CV pipeline, separate FastAPI service on Hugging Face Spaces for the classifier. Added camera capture, processing screen with step indicators, and results screen.',
+            body: 'Built ScanMint as a deployed web app: Next.js frontend, FastAPI backend for the CV pipeline, separate FastAPI service on Hugging Face Spaces for the classifier. Added camera capture, processing screen with step indicators, and results screen.',
           },
           {
             version: 'v0.4',
@@ -827,7 +827,7 @@ export default function SettingsPage() {
             </button>
           )}
           <p className="text-center text-xs" style={{ color: '#BBBBBB' }}>
-            SmartScan v0.15, CSCI435 Demo
+            ScanMint v0.15, CSCI435 Demo
           </p>
         </div>
       </div>

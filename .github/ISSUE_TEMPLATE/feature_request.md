@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest a new feature or improvement for SmartScan
+about: Suggest a new feature or improvement for ScanMint
 title: "[FEATURE] "
 labels: enhancement
 assignees: ''

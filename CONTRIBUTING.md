@@ -1,6 +1,6 @@
-# Contributing to SmartScan
+# Contributing to ScanMint
 
-SmartScan was built as a group project for CSCI435. It isn't actively seeking
+ScanMint was built as a group project for CSCI435. It isn't actively seeking
 external contributions, but if you'd like to report a bug, suggest an
 improvement, or fork it for your own learning, here's how.
 
