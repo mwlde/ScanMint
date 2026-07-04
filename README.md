@@ -1,5 +1,7 @@
 # ScanMint
 
+![ScanMint banner](assets/scanmint-banner.png)
+
 A mobile document scanner that detects, corrects perspective, and classifies document images using computer vision and deep learning. Built for CSCI435 at the University of Wollongong in Dubai.
 
 **Current version: v0.16**
