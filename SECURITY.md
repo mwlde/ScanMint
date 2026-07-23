@@ -9,13 +9,15 @@ confidential data.
 
 ## Supported Versions
 
-| Version | Supported |
+| Branch | Supported |
 |---------|-----------|
 | main (latest) | Yes |
+| dev | No |
 | All other branches/tags | No |
 
-Only the `main` branch receives security attention. There are no maintained
-release versions.
+Only the `main` branch receives security attention and support. The `dev`
+branch is an active development line, provided as-is without support, and its
+code may be unstable or incomplete. There are no maintained release versions.
 
 ## Reporting a Vulnerability
 
